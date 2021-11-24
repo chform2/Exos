@@ -21,6 +21,9 @@ body{
     --contrast:#fff;
     --contrast-reverse:#2e2e2e;
     --bg-contact:#ededed;
+    --text-muted:gray;
+    --bg-nav:rgb(37, 37, 37);
+    --navlinks: #fff;
 }
 
 body.dark{
@@ -29,6 +32,7 @@ body.dark{
     --contrast:#2e2e2e !important;
     --contrast-reverse:#fff !important;
     --bg-contact:#303030 !important;
+    --text-muted:silver;
 }
 
 /*
@@ -48,7 +52,7 @@ body.dark{
     font-weight: bold;
 }
 .text-muted{
-    color:gray;
+    color:var(--text-muted);
 }
 /*
    _____ ______ _   _ ______ _____            _      
@@ -76,11 +80,12 @@ body{
     transition: all 500ms ease-in-out;
 }
 nav{
+    z-index:99;
     position:relative;
     top:0px;
     left:0px;
     padding:10px;
-    background-color: rgb(37, 37, 37);
+    background-color: var(--bg-nav);
     right:0px;
     transition: all 500ms ease-in-out;
     border-bottom:8px solid var(--color-primary);
@@ -90,7 +95,7 @@ nav a.navbar-brand{
     margin-right:25px;
 }
 nav a, nav a:hover, nav a:visited{
-    color:#fff;
+    color:var(--navlinks);
     text-decoration: none;
     border-bottom:1px dotted var(--police-color);
 }
@@ -106,11 +111,65 @@ div.darkMod{
     border-radius:35%;
 }
 header{
-    background-color: var(--color-primary);
+    z-index:0;
     color:#fff;
     padding:20px 5px 20px 5px;
+
+    /* The image used */
+    background-image: url("./images/cover.webp");
+  
+    /* Set a specific height */
+    min-height: 100vh; 
+  
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+header .content{
+    position:relative;
+    top:0px;
+    left:0px;
+    right:0px;
+    background-color: rgba(19, 10, 10, 0.5);
+    text-align: center;
+    padding:15px;
+
+}
+
+.input-color-container {
+    position:fixed;
+    top:4px;
+    right:4px;
+    z-index:1000;
+    overflow: hidden;
+    width: 35px;
+    height: 35px;
+    border: solid 2px #ddd;
+    border-radius: 40px;
+}
+
+.input-color {
+    position: absolute;
+    right: -8px;
+    top: -20px;
+    width: 64px;
+    height: 64px;
+    border: none;
+}
+
+.input-color-label {
+    cursor: pointer;
+    text-decoration: underline;
+    color: #3498db;
 }
 aside{
+    z-index:0;
     padding:10px;
 }
 form.contact{
